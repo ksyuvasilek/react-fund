@@ -1,4 +1,4 @@
-import { useMemo } from "react/cjs/react.production.min";
+import {useMemo} from "react";
 
 export const useSortedPosts = (posts, sort) => {
     const sortedPosts = useMemo(() => {
@@ -13,6 +13,7 @@ export const useSortedPosts = (posts, sort) => {
 
 export const usePosts = (posts, sort, query) => {
     const sortedPosts = useSortedPosts(posts, sort);
+
     const sortedAndSearchedPosts = useMemo(() => {
         return sortedPosts.filter(post => post.title.toLowerCase().includes(query.toLowerCase()))
     }, [query, sortedPosts])
